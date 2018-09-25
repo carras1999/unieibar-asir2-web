@@ -12,4 +12,4 @@ $horario = array(
 );
 
 
-echo $horario[$dia][$hora-8];
+echo $horario[$dia-1][$hora-8];
