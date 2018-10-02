@@ -12,6 +12,7 @@ $horario = array(
 //echo $horario[$dia-1][$hora-8] . "<br><br>";
 $dia_actual = date("N")-1;
 $hora_actual = date("G")-8;
+
 //echo $horario[$hora][$dia] . "<br><br>";
 // print horario
 // https://stackoverflow.com/questions/141108/how-to-find-the-foreach-index
