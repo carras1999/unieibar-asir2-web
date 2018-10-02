@@ -1,31 +1,34 @@
 <?php
 
-$dia = date("N");
-$hora = date("G");
-
 $horario = array(
-    array("<b>LUNES<b>","BASE DE DATOS","EIE","SO","SO","WEB","WEB"), //LUNES
-    array("<b>MARTES<b>","WEB","SEGURIDAD","REDES","REDES","BASE DE DATOS","BASE DE DATOS"), //MARTES
-    array("<b>MIERCOLES<b>","SEGURIDAD","SEGURIDAD","SO","SO","EIE","EIE"), //MIERCOLES
-    array("<b>JUEVES<b>","REDES","REDES","SO","SO","WEB","WEB"), //JUEVES
-    array("<b>VIERNES<b>","SEGURIDAD","SEGURIDAD","REDES","REDES","INGLES","INGLES"), //VIERNES
+    array("BASE DE DATOS","EIE","SO","SO","WEB","WEB"), //LUNES
+    array("WEB","SEGURIDAD","REDES","REDES","BASE DE DATOS","BASE DE DATOS"), //MARTES
+    array("SEGURIDAD","SEGURIDAD","SO","SO","EIE","EIE"), //MIERCOLES
+    array("REDES","REDES","SO","SO","WEB","WEB"), //JUEVES
+    array("SEGURIDAD","SEGURIDAD","REDES","REDES","INGLES","INGLES"), //VIERNES
 );
 
 
 //echo $horario[$dia-1][$hora-8] . "<br><br>";
-$niggi = $horario[$dia-1][$hora-8];
-echo "<table border=1>";
-foreach ($horario as $all) { 
+$dia_actual = date("N")-1;
+$hora_actual = date("G")-8;
+//echo $horario[$hora][$dia] . "<br><br>";
+// print horario
+// https://stackoverflow.com/questions/141108/how-to-find-the-foreach-index
+echo "<table border='1'>";
+foreach ($horario as $i=>$dia) {
     echo "<tr>";
-    foreach ($all as $asig) {
-        echo "<td>";
-        if ($dia-1 == ) {   
-            echo "<b>" . $niggi . "<b>";
+    foreach ($dia as $j=>$asig) {
+        echo "<td>";       
+        if ($i == $hora_actual && $j == $dia_actual) {
+            echo "<b>" . $asig . "</b>";
+            //echo "<b>" . $horario[$i][$j] . "</b>";
         } else {
-            echo $horario[$dia-1][$hora-8];
+            echo $horario[$i][$j];
         }
-    echo $asig . "</td>";
+        echo "</td>";
     }
-    echo "</tr>";
+    echo "<tr>";
 }
 echo "</table>";
+?>
