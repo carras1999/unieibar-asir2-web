@@ -7,17 +7,20 @@ $password = "";
 //$password = "";
 $db = "web";
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
+$mysqli = new mysqli($servername, $username, $password, $db);
 // Check connection
-if (!$conn) {
+if (!$mysqli) {
     die("Connection failed: " . mysqli_connect_error());
 }
 //echo "Connected successfully";
 // select from user where ....
-$query = "SELECT name FROM users";
+$query = "SELECT * FROM users";
 //echo $query;
-$result = mysqli_query($conn, $query);
-/* numeric array */
-while($row = mysqli_fetch_array($result)){
-    echo $row[0] . "<br>";
+$result = $mysqli -> query($query);
+//var_dump($result);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo $row["name"] . "<br>";
+    }
 }
