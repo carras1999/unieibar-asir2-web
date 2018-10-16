@@ -14,7 +14,7 @@ if (!$conn) {
 }
 //echo "Connected successfully";
 // select from user where ....
-$query = "SELECT name FROM users";
+$query = "SELECT user FROM users";
 //echo $query;
 $result = mysqli_query($conn, $query);
 /* numeric array */
